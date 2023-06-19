@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     @Test
     public void getCurrentStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
-        radio.setCurrentStation(1);
+        radio.setCurrentStation(8);
 
-        int expected = 1;
+        int expected = 8;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, radio.getCurrentStation());
     }
 
     @Test
     public void setCurrentStationBelowMin() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(-1);
 
@@ -29,7 +29,7 @@ public class RadioTest {
 
     @Test
     public void setCurrentStationUnderMax() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(10);
 
@@ -62,7 +62,7 @@ public class RadioTest {
 
     @Test
     public void nextTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(9);
         radio.next();
 
@@ -73,7 +73,7 @@ public class RadioTest {
 
     @Test
     public void nextForAnotherNumberTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(8);
         radio.next();
 
@@ -84,7 +84,7 @@ public class RadioTest {
 
     @Test
     public void prevTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(0);
         radio.prev();
 
@@ -95,7 +95,7 @@ public class RadioTest {
 
     @Test
     public void prevForAnotherNumberTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(9);
         radio.prev();
 
